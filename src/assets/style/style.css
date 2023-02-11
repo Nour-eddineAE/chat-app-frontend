@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+:root {
+  --sent-msg: rgb(63, 104, 235);
+  --received-msg: rgb(235, 226, 226);
+
+  --send-main: rgb(49, 139, 249);
+  --send-highlight: rgb(103, 167, 244);
+
+  --chat-ui: rgb(241, 241, 241);
+
+  --msg-padding: 0.5rem;
+  --msg-margin: 0.5rem;
+
+  --main-border-radius: 0.2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 60%;
+  height: 98%;
+  background-color: var(--chat-ui);
+  margin: 1% 0;
+  border-radius: var(--main-border-radius);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
+  position: relative;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--send-main);
+  border-radius: var(--main-border-radius);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.chat-header .left-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  column-gap: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.chat-header .right-part {
+  margin-right: 0.5rem;
+}
+
+.cancel-chat {
+  height: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.receiver-avatar {
+  background-color: white;
+}
+
+.avatar,
+.receiver-avatar {
+  height: 2.8rem;
+  width: 2.8rem;
+  border-radius: 1.4rem;
+}
+
+.receiver-name {
+  color: white;
+}
+
+.chat-box {
+  margin-top: 3.2rem;
+  height: 84%;
+  overflow: auto;
+}
+
+.sent-msg-container {
+  display: flex;
+  justify-content: right;
+  margin: 0;
+  padding: 0;
+}
+.sent-message {
+  color: white;
+  background-color: var(--sent-msg);
+}
+
+.received-message {
+  background-color: var(--received-msg);
+}
+
+.received-message,
+.sent-message {
+  padding: var(--msg-padding);
+  width: fit-content;
+  border-radius: 1.1rem;
+  margin: 0.2rem var(--msg-margin);
+  max-width: 70%;
+}
+
+.write-msg {
+  padding: 0.4rem 1rem;
+  border-radius: var(--main-border-radius);
+  background-color: var(--received-msg);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.msg-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.msg-input {
+  width: 90%;
+  height: 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  padding: 0 0 0 1rem;
+}
+
+.msg-button {
+  width: 6%;
+  color: var(--send-main);
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.msg-button:hover {
+  color: var(--send-highlight);
+}
