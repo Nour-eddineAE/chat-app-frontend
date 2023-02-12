@@ -1,12 +1,12 @@
 <template>
   <section class="chat-box">
     <div v-for="message in $store.state.messages">
-      <ReceivedMsg
-        v-if="message.senderId !== $store.state.user._id"
-        :message="{ senderId: message.senderId, content: message.content }"
-      />
       <SentMsg
         v-if="message.senderId === $store.state.user._id"
+        :message="{ senderId: message.senderId, content: message.content }"
+      />
+      <ReceivedMsg
+        v-else
         :message="{ senderId: message.senderId, content: message.content }"
       />
     </div>
@@ -21,6 +21,12 @@ export default {
   components: {
     SentMsg,
     ReceivedMsg,
+  },
+  mounted() {
+    // scroll to new messages
+    const lastMsg =
+      document.getElementsByClassName("chat-box")[0].lastElementChild;
+    if (lastMsg) lastMsg.scrollIntoView(false);
   },
 };
 </script>

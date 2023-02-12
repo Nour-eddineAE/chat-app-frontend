@@ -14,7 +14,6 @@ export default {
     };
 
     state.wsConnection.onmessage = function (event) {
-      console.log("Event from ws server: ", event);
       state.messages.push(JSON.parse(event.data));
     };
 

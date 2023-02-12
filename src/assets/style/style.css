@@ -77,7 +77,7 @@ body {
   background-color: white;
 }
 
-.avatar,
+.receiver-avatar .avatar,
 .receiver-avatar {
   height: 2.8rem;
   width: 2.8rem;
@@ -94,12 +94,37 @@ body {
   overflow: auto;
 }
 
+.other-msg {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  height: 1.2rem;
+}
+
+.other-avatar {
+  background-color: white;
+}
+
+.other-avatar .avatar,
+.other-avatar {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 0.6rem;
+}
+
+.other-name {
+  color: var(--send-main);
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
 .sent-msg-container {
   display: flex;
   justify-content: right;
   margin: 0;
   padding: 0;
 }
+
 .sent-message {
   color: white;
   background-color: var(--sent-msg);

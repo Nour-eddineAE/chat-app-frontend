@@ -13,5 +13,10 @@ export default {
       content: "",
     },
   },
+  mounted() {
+    document
+      .getElementsByClassName("chat-box")[0]
+      .lastElementChild.scrollIntoView({ behavior: "smooth", block: "end" });
+  },
 };
 </script>

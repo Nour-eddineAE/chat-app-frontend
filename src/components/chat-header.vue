@@ -5,7 +5,7 @@
         <img class="avatar" :src="$store.state.user.avatar" alt="avatar" />
       </div>
       <p class="receiver-name">
-        {{ $store.state.user.name }} {{ $store.state.user._id }}
+        {{ $store.state.user.name }}
       </p>
     </div>
     <div class="right-part">
