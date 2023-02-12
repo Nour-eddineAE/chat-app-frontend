@@ -1,8 +1,14 @@
 <template>
   <section class="write-msg">
     <form action="" class="msg-form">
-      <input type="text" class="msg-input" placeholder="Type a message" />
+      <input
+        v-model="message.content"
+        type="text"
+        class="msg-input"
+        placeholder="Type a message"
+      />
       <svg
+        @click="sendMsg"
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
@@ -21,5 +27,20 @@
 <script>
 export default {
   name: "chat-form",
+  data() {
+    return {
+      message: {
+        content: "",
+        senderId: "",
+      },
+    };
+  },
+  methods: {
+    sendMsg() {
+      this.message.senderId = this.$store.state.user._id;
+      this.$store.dispatch("sendMessage", this.message);
+      this.message.content = "";
+    },
+  },
 };
 </script>

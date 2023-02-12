@@ -1,12 +1,15 @@
 <template>
-  <div class="received-message">{{ content }}</div>
+  <div class="received-message">{{ message.content }}</div>
 </template>
 
 <script>
 export default {
   name: "received-msg",
   props: {
-    content: "",
+    message: {
+      senderId: "",
+      content: "",
+    },
   },
 };
 </script>

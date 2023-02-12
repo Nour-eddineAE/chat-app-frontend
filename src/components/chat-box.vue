@@ -1,32 +1,15 @@
 <template>
   <section class="chat-box">
-    <SentMsg content="hello" />
-    <SentMsg content="Sent" />
-    <SentMsg
-      content=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quo
-            ab libero odit. Quia, suscipit? Rerum ea blanditiis cupiditate
-            similique."
-    />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg content="Received" />
-    <ReceivedMsg
-      content=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt et
-          inventore soluta? Quas ad ut dolorum fugiat voluptates voluptatem.
-          Animi porro quo nemo, hic dicta voluptatem possimus eligendi
-          distinctio error."
-    />
+    <div v-for="message in $store.state.messages">
+      <ReceivedMsg
+        v-if="message.senderId !== $store.state.user._id"
+        :message="{ senderId: message.senderId, content: message.content }"
+      />
+      <SentMsg
+        v-if="message.senderId === $store.state.user._id"
+        :message="{ senderId: message.senderId, content: message.content }"
+      />
+    </div>
   </section>
 </template>
 <script>

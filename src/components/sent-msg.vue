@@ -1,6 +1,6 @@
 <template>
   <div class="sent-msg-container">
-    <div class="sent-message">{{ content }}</div>
+    <div class="sent-message">{{ message.content }}</div>
   </div>
 </template>
 
@@ -8,7 +8,10 @@
 export default {
   name: "sent-msg",
   props: {
-    content: "",
+    message: {
+      senderId: "",
+      content: "",
+    },
   },
 };
 </script>

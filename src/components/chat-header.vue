@@ -8,10 +8,12 @@
           alt="avatar"
         />
       </div>
-      <p class="receiver-name">Receiver</p>
+      <p class="receiver-name">
+        {{ $store.state.user.name }} {{ $store.state.user._id }}
+      </p>
     </div>
     <div class="right-part">
-      <div class="cancel-chat">
+      <div class="cancel-chat" @click="close">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -33,5 +35,11 @@
 <script>
 export default {
   name: "chat-header",
+  methods: {
+    close() {
+      this.$router.back();
+      this.$store.commit("closeWSConnection");
+    },
+  },
 };
 </script>

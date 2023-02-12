@@ -1,24 +1,13 @@
 <template>
-  <div class="container">
-    <div class="chat-container">
-      <ChatHeader />
-      <ChatBox />
-      <ChatForm />
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-import ChatHeader from "@/components/chat-header.vue";
-import ChatBox from "@/components/chat-box.vue";
-import ChatForm from "@/components/chat-form.vue";
-
 export default {
   name: "app-vue",
-  components: {
-    ChatHeader,
-    ChatBox,
-    ChatForm,
+  async created() {
+    await this.$store.dispatch("loadUsers");
+    await this.$store.dispatch("loadMessages");
   },
 };
 </script>
