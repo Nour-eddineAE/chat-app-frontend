@@ -19,5 +19,8 @@ export default {
     ChatBox,
     ChatForm,
   },
+  beforeUnmount() {
+    this.$store.commit("closeWSConnection");
+  },
 };
 </script>

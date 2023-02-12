@@ -14,14 +14,16 @@ export default {
     };
 
     state.wsConnection.onmessage = function (event) {
-      // TODO handle onmessage event
       console.log("Event from ws server: ", event);
       state.messages.push(JSON.parse(event.data));
+    };
+
+    state.wsConnection.onclose = function (event) {
+      console.log("Connection to websocket closed");
     };
   },
   closeWSConnection(state) {
     state.wsConnection.close();
-    console.log("Connection to websocket closed");
   },
   setSender(state, user) {
     state.user = user;

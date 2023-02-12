@@ -1,6 +1,6 @@
 <template>
   <section class="write-msg">
-    <form action="" class="msg-form">
+    <form action="" class="msg-form" @submit.enter.prevent="sendMsg">
       <input
         v-model="message.content"
         type="text"
