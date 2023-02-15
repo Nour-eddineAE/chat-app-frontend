@@ -14,7 +14,7 @@ export default {
     };
 
     state.wsConnection.onmessage = function (event) {
-      state.messages.push(JSON.parse(event.data));
+      state.messages = [...state.messages, JSON.parse(event.data)];
     };
 
     state.wsConnection.onclose = function (event) {
